@@ -1,3 +1,6 @@
+DEFAULT REACT README BELOW
+btw this is my first attempt at both github and react so yea :)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
