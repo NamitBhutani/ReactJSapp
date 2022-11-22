@@ -1,23 +1,40 @@
-import logo from "./logo.svg";
 import "./App.css";
-
+import Employee from "./components/Employee";
+import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 function App() {
+  const [role, setRole] = useState("NIL");
+  const [employees, setEmployees] = useState([
+    {
+      name: "Bully Maguire",
+      role: "UNfriendly neighbourhood Spider-Man",
+      img: "https://i1.sndcdn.com/artworks-g0uZiBmAbb4Gy4U2-qoCInQ-t500x500.jpg",
+    },
+    {
+      name: "Tom Holland",
+      role: "baby Spider-Man",
+      img: "https://i.imgflip.com/2bffc8.jpg?a463080",
+    },
+  ]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React with Intello
-        </a>
-      </header>
+      <input
+        type="text"
+        onChange={(e) => {
+          console.log(e.target.value);
+          setRole(e.target.value);
+        }}
+      />
+      {employees.map((employee) => {
+        return (
+          <Employee
+            key={uuidv4()}
+            name={employee.name}
+            role={employee.role}
+            img={employee.img}
+          />
+        );
+      })}
     </div>
   );
 }
