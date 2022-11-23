@@ -2,6 +2,7 @@ import "./App.css";
 import Employee from "./components/Employee";
 import { useState } from "react";
 import AddEmployee from "./components/AddEmployee";
+import Header from "./components/Header";
 function App() {
   const [role, setRole] = useState("NIL");
   const [employees, setEmployees] = useState([
@@ -42,6 +43,7 @@ function App() {
   return (
     <>
       <div className="App">
+        <Header />
         <input
           type="text"
           onChange={(e) => {
