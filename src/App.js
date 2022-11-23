@@ -1,6 +1,7 @@
 import "./App.css";
 import Employee from "./components/Employee";
 import { useState } from "react";
+import AddEmployee from "./components/AddEmployee";
 function App() {
   const [role, setRole] = useState("NIL");
   const [employees, setEmployees] = useState([
@@ -27,27 +28,41 @@ function App() {
     });
     setEmployees(updatedEmployees);
   }
+
+  function newEmployee(name, role, img) {
+    const NewEmployee = {
+      id: 3,
+      name: name,
+      role: role,
+      img: img,
+    };
+    setEmployees([...employees, NewEmployee]);
+  }
+
   return (
-    <div className="App">
-      <input
-        type="text"
-        onChange={(e) => {
-          console.log(e.target.value);
-          setRole(e.target.value);
-        }}
-      />
-      {employees.map((employee) => {
-        return (
-          <Employee
-            id={employee.id}
-            name={employee.name}
-            role={employee.role}
-            img={employee.img}
-            updateEmployee={updateEmployee}
-          />
-        );
-      })}
-    </div>
+    <>
+      <div className="App">
+        <input
+          type="text"
+          onChange={(e) => {
+            console.log(e.target.value);
+            setRole(e.target.value);
+          }}
+        />
+        {employees.map((employee) => {
+          return (
+            <Employee
+              id={employee.id}
+              name={employee.name}
+              role={employee.role}
+              img={employee.img}
+              updateEmployee={updateEmployee}
+            />
+          );
+        })}
+      </div>
+      <AddEmployee newEmployee={newEmployee} />
+    </>
   );
 }
 
