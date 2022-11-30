@@ -3,8 +3,9 @@ import "./App.css";
 //import { useState } from "react";
 //import AddEmployee from "./components/AddEmployee";
 import Employees from "./pages/Employees";
+import Team from "./pages/Team";
 import Header from "./components/Header";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Switch, BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
   return (
     <>
@@ -12,6 +13,7 @@ function App() {
         <Header>
           <Routes>
             <Route path="/employees" element={<Employees />} />
+            <Route path="/team" element={<Team />} />
           </Routes>
         </Header>
       </BrowserRouter>
