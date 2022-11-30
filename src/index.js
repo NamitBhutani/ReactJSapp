@@ -1,15 +1,23 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
+//import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { HashRouter } from "react-router-dom";
+import Employees from "./pages/Employees";
+import Team from "./pages/Team";
+import Header from "./components/Header";
+import { HashRouter, Routes, Route } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <HashRouter>
-      <App />
+      <Header>
+        <Routes>
+          <Route exact path="/employees" element={<Employees />} />
+          <Route exact path="/team" element={<Team />} />
+        </Routes>
+      </Header>
     </HashRouter>
   </React.StrictMode>
 );
